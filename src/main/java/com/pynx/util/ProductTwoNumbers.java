@@ -1,38 +1,38 @@
 package com.pynx.util;
-/*
-Take two user input of type int
-and print the product of the input
- */
+
 import java.util.Scanner;
 
+/*
+Program to compute a product
+of two numbers given two
+numbers from user input
+of type int
+ */
 public class ProductTwoNumbers {
-    Scanner s = new Scanner(System.in);
-    private int getUserInput(){
-        System.out.print("Enter a number: ");
-        return s.nextInt();
+
+    public static void main(String[] args){
+        //ask user input for 1st number
+        System.out.print("Enter 1st number: ");
+        Scanner s = new Scanner(System.in);
+        int num1 = s.nextInt();
+
+        // ask for 2nd number
+        System.out.print("Enter 2nd number: ");
+        int num2 = s.nextInt();
+
+        // get the product
+        int result = new ProductTwoNumbers().getProduct(
+                num1,num2
+        );
+
+        // print the result
+        System.out.print(num1 +"*"+num2+" = "
+            +result);
+
+        s.close();
+
     }
-    public int getProduct(int num1, int num2){
+    public int getProduct(int num1,int num2){
         return num1*num2;
     }
-    public static void main(String[] args){
-        boolean repeat = true;
-        ProductTwoNumbers util = new ProductTwoNumbers();
-        while(repeat){
-            int result = util.getProduct(
-                    util.getUserInput(),
-                    util.getUserInput()
-            );
-            System.out.println("result:"+result);
-            System.out.print("try another y/n? ");
-            util.s = new Scanner(System.in);
-            repeat = util.s.nextLine()
-                    .equalsIgnoreCase("y");
-        }
-        util.s.close();
-
-
-
-
-    }
-
 }
